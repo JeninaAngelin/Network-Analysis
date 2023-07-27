@@ -37,35 +37,36 @@ Potential entry points for cyber attack:
 Network mapping refers to the process of creating a visual representation of a computer network's structure, layout, and connectivity. It involves discovering and documenting various network elements, such as devices, routers, switches, servers, and their interconnections. 
 The main purpose of network mapping is to gain a comprehensive understanding of the network's topology, allowing network administrators, engineers, or security professionals to manage, troubleshoot, and secure the network effectively. Here, we use Cisco Packet Tracer for the purpose. The following rooms of the Institute are considered for the network analysis.
 <br>
-I) Principal Room
+I) Principal Room<ol>
 1.1.	1 PC
 1.2.	1 Laptop
 1.3.	1 Switch
-
-II) Staff Room
+</ol>
+II) Staff Room<ol>
 2.1.	4 PCs
 2.2.	3 Printers
 2.3.	1 Switch
-
-III) Server Room
+</ol>
+III) Server Room<ol>
 3.1.	3 Servers
 3.2.	1 PC
 3.3.	1 Switch
-
-IV) IT Lab
+</ol>
+IV) IT Lab<ol>
 4.1.	1 Printer
 4.2.	4 x 10 PCs + 1 PC
 4.3.	1 Switch
-
-CSE Lab
+</ol>
+CSE Lab<ol>
 5.1.	1 Printer
 5.2.	4 x 10 PCs + 1 PC
 5.3.	1 Switch
-
-DS Lab
+</ol>
+DS Lab<ol>
 6.1.	1 Printer
 6.2.	4 x 10 PCs + 1 PC
 6.3.	1 Switch
+</ol>
 
 ### Learnings:
 
