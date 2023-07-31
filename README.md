@@ -81,3 +81,28 @@ An access port is a type of switch port that is assigned to a specific VLAN (Vir
 
 #### Other End Devices
 In Cisco Packet Tracer, end devices refer to network devices that serve as the sources or destinations of data packets in a simulated network. These devices are usually located at the edges of the network and represent devices that users interact with directly.
+
+## Attack Surface Mapping
+Attack surface mapping is a process used to identify and analyze potential points of vulnerability in a system, application, or network that could be exploited by attackers to gain unauthorized access or compromise the security of the target. By understanding and mapping the attack surface, organizations can proactively assess and strengthen their security defenses to reduce the risk of successful cyber-attacks.
+
+#### The "ping" command
+
+When a user enters the "ping" command in the command-line interface (CLI) of a device, they specify the IP address or hostname of the destination device they want to test. The "ping" command sends an ICMP Echo Request message from the source device to the destination device, and the destination device responds with an ICMP Echo Reply message. It displays the result of the communication test, showing the number of packets sent, received, lost (if any), and the minimum, maximum, and average RTT values. The results help network administrators assess the quality of the network link and identify potential issues, such as high latency or packet loss.
+
+#### ARP Tables
+
+Manage the Address Resolution Protocol (ARP) cache. By using "arp -d", you can delete entries from the ARP cache, and with "arp -a", you can view the contents of the ARP cache, which provides information about the IP-to-MAC address mappings. When attempting to ping one PC from the other, the ping operation fails. The objective is to investigate the reason behind this failed ping, despite the direct connection between the computers. We observe that the ARP resolution is not occurring, leading to the failure of the ping. The Address Resolution Protocol (ARP) is responsible for mapping IP addresses to MAC addresses. In this case, since the computers are on different subnets, they are not in the same broadcast domain. As a result, the ARP messages from one PC cannot reach the other PC, preventing the MAC address resolution and subsequent successful communication.
+
+This situation highlights the need for routers. Routers are devices that operate at the network layer (Layer 3) of the OSI model and facilitate communication between different subnets or networks. By connecting the two computers through a router, it can perform the necessary routing functions, including ARP resolution between subnets. This enables successful communication between devices on different subnets by forwarding packets between them.
+
+#### MAC table
+
+Performing "ping" tests between neighbouring computers to verifies connectivity. Additionally, we will explore the MAC table in the switch and gain an understanding of its fundamental functionalities such as learning, flooding, and forwarding. 
+
+#### RIB
+The RIB is a database that contains routing information, including static routes, dynamic routes, and administrative distance values. It helps the router determine the best path for forwarding packets based on the destination IP address.
+
+#### OSPF
+
+We will utilize OSPF-specific show commands to examine how OSPF works. These commands provide insights into OSPF's behavior, including the OSPF neighbor relationships, the states of OSPF interfaces, and the OSPF routing table. By using the show ip route command, we can check the resulting IP route table, which contains information about OSPF-learned routes and their associated next hops.
+By configuring OSPF, analyzing the OSPF show commands, examining the IP route table, and reviewing the show ip int brief table, we can gain a deeper understanding of how OSPF facilitates efficient routing within a network and how it dynamically builds the routing table to determine the best paths for packet forwarding.
