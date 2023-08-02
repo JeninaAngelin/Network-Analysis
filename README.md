@@ -106,3 +106,52 @@ The RIB is a database that contains routing information, including static routes
 
 We will utilize OSPF-specific show commands to examine how OSPF works. These commands provide insights into OSPF's behavior, including the OSPF neighbor relationships, the states of OSPF interfaces, and the OSPF routing table. By using the show ip route command, we can check the resulting IP route table, which contains information about OSPF-learned routes and their associated next hops.
 By configuring OSPF, analyzing the OSPF show commands, examining the IP route table, and reviewing the show ip int brief table, we can gain a deeper understanding of how OSPF facilitates efficient routing within a network and how it dynamically builds the routing table to determine the best paths for packet forwarding.
+
+## Secure Access Controls
+The setup involves connecting the computers to the switch, which in turn is connected to the router, thereby enabling communication between the two networks.
+#### Create Secure Trunks:
+To enhance security, it is recommended to disable DTP on trunk ports and explicitly configure them as trunk ports. [ I’ve pasted some terminal commands which I implemented in the CLI of some switches]
+<pre>
+  Switch(config-if)# switchport nonegotiate
+  Switch(config-if)# switchport mode trunk 
+  Switch(config-if)# switchport trunk encapsulation dot1q</pre>
+Manually configure trunk ports on both ends of the link with the appropriate trunking encapsulation. Specify the allowed VLANs on the trunk using the following commands.
+<pre>
+  switchport trunk allowed vlan 
+  Switch(config-if)# switchport trunk allowed vlan 10,20,30
+  Switch(config)# vlan pruning
+</pre>Some switches support trunk port security to limit the number of MAC addresses allowed on a trunk port. This feature helps prevent MAC address spoofing and unauthorized devices from connecting to trunk ports.
+<pre>
+  Switch(config-if)# switchport port-security maximum 5 
+  Switch(config-if)# switchport port-security violation {shutdown | restrict | protect}
+</pre>Disable any trunk ports that are not in use. If a trunk port is not needed, it's best to shut it down to reduce the attack surface.
+<pre>
+  Switch(config-if)# shutdown
+</pre>
+
+#### Secure Unused SwitchPorts
+Given below are the steps to disable unused switch ports.
+Open the created network topology with Cisco Packet Tracer 
+Click on the switch to open the configuration options.
+Access the CLI of the switch by clicking on the "CLI" tab at the bottom of the switch configuration window.
+Enter the global configuration mode by typing enable and then configure terminal:
+<pre>Switch> enable
+  Switch# configure terminal
+  Switch(config)# interface FastEthernet0/1
+  Switch(config-if)# switchport port-security
+  Switch(config-if)# switchport port-security mac-address 0011.2233.4455
+  Switch(config-if)# switchport port-security violation shutdown
+</pre>Exit the interface configuration mode and save the configuration
+<pre>
+  Switch(config-if)# end 
+  Switch# write memory</pre>
+Now, if an unauthorized device with a MAC address not listed in the allowed list tries to connect to the port, port security will be triggered based on the violation mode you set.
+
+#### Implement Port Security
+Private VLANs provide additional isolation and segregation within a single VLAN. PVLANs restrict communication between certain ports within the same VLAN, enhancing security and preventing lateral movement between devices.
+The Port Status of the unused one can be turned OFF. This is a simple method of ensuring Port Security. But there are other methods to ensure similar actions. VLAN pruning is an optional step to limit unnecessary broadcast traffic on trunk links. 
+One another is using commands for the same action performed in the first technique. It simply requires the keyword ‘shutdown’. However, directly using this type of switching them down is not always preferred.
+<pre>
+  Switch(config-if)# switchport port-security violation protect
+  Switch(config)# vlan pruning
+</pre>
