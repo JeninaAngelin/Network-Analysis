@@ -172,3 +172,26 @@ One another is using commands for the same action performed in the first techniq
   Switch(config-if)# switchport port-security violation protect
   Switch(config)# vlan pruning
 </pre>
+
+### Mitigation countermeasures
+
+These measures wrap up the following such as 
+<ol>
+  <li>Network Segmentation, </li>
+<li>Intrusion, </li>
+<li>Detection Systems, </li>
+<li>Firewalls, </li>
+<li>Authentication and </li>
+<li>Authorization systems </li>
+</ol>
+
+### Conclusion:
+
+I am grateful for the trust and responsibility given to me during this internship, allowing me to take on challenging tasks and contribute meaningfully to the success of the projects. The Institute had already resolved all security issues except the open, unused switch ports in the Data Science(DS) Lab which was recently opened. On the whole, a proper security analysis was done in the Admin Block and Lab Block 1 of the Institute to ensure secure environment without cyber threats. 
+
+### End Note:
+
+Throughout my time at Cisco, I have had the privilege of working with a team of talented professionals who have been incredibly supportive and encouraging. The experience I gained during this internship has been both enriching and transformative, helping me develop in the Cybersecurity domain.
+
+The exposure to real-world projects, cutting-edge technologies, and the collaborative work environment has been instrumental in broadening my understanding of the industry and enhancing my skills. The mentorship and guidance I received from my supervisors and colleagues have been invaluable in shaping my career path.
+
